@@ -1,0 +1,157 @@
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h1 class="page-header-title">Szabadség naptár</h1>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto">
+            <a class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#freeCreate">
+                <i class="bi-plus-circle me-1"></i> Szabadság kérelmezése
+            </a>
+        </div>
+        <!-- End Col -->
+    </div>
+    <!-- End Row -->
+</div>
+<!-- End Page Header -->
+
+<div class="content container-fluid">
+    <div class="row justify-content-lg-center">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- Card -->
+                    <div class="js-sticky-block card mb-3 mb-lg-5">
+                        <!-- Header -->
+                        <div class="card-header">
+                            <h4 class="card-header-title">Naptár</h4>
+                        </div>
+                        <!-- End Header -->
+
+                        <!-- Body -->
+                        <div class="card-body">
+                            <!--<div id="js-fullcalendar-editable" class="fullcalendar-custom"></div>-->
+                            <div ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar">
+                        </div>
+                        <!-- End Body -->
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="freeCreate" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="freeCreateLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="freeCreateLabel">Szabadság igénylése</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form id="teszta">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <div class="mb-2">
+                            <label for="" class="form-label">Szabadság kezdete</label>
+                            <input type="text" ng-model="datestart" id="js-flatpickr-disabling-dates" class="form-control flatpickr-custom" placeholder="Dátum kiválasztása"
+                            data-hs-flatpickr-options='{
+                                "dateFormat": "Y-m-d"
+                            }'>
+                        </div>
+                        <div class="mb-4">
+                            <label for="" class="form-label">Szabadság vége</label>
+                            <input type="text" ng-model="dateend" id="js-flatpickr-disabling-dates" class="form-control flatpickr-custom" placeholder="Dátum kiválasztása"
+                            data-hs-flatpickr-options='{
+                                "dateFormat": "Y-m-d"
+                            }'>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label" for="exampleFormControlTextarea1">Megjegyzés</label>
+                            <textarea ng-model="desc" id="exampleFormControlTextarea1" class="form-control" rows="4"></textarea>
+                        </div>
+
+                        <!-- Form Check -->
+                        <div class="form-check form-check-inline">
+                            <input ng-model="freeRadio" value="Sz" type="radio" id="formInlineRadio1" class="form-check-input" name="formInlineRadio">
+                            <label class="form-check-label" for="formInlineRadio1">Szabadság</label>
+                        </div>
+                        <!-- End Form Check -->
+                        
+                        <!-- Form Check -->
+                        <div class="form-check form-check-inline">
+                            <input ng-model="freeRadio" value="B" type="radio" id="formInlineRadio2" class="form-check-input" name="formInlineRadio">
+                            <label class="form-check-label" for="formInlineRadio2">Betegség</label>
+                        </div>
+                        <!-- End Form Check -->
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">Mégse</button>
+            <button type="button" ng-click="createFree(freeRadio)" class="btn btn-primary" disableonrequest>Igénylés</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="selectedFree" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="selectedFreeLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="selectedFreeLabel">{{selectModalTitle}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <h2>{{selectName}}</h2>
+            <div class="d-flex mb-4">
+                <i class="bi bi-clock nav-icon"></i>
+                <div class="flex-grow-1">
+                    <span class="d-block text-dark mb-2">{{selectStartDate}} - {{selectEndDate}}</span>
+                    <span class="d-block">Típus: <span class="text-dark text-capitalize">{{selectType}}</span></span>
+                </div>
+            </div>
+
+            <div class="d-flex mb-4">
+                <i class="bi bi-text-left nav-icon"></i>
+                <div class="flex-grow-1">
+                    <span class="d-block text-dark">{{selectDesc}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer" ng-if="selectStatus === 'pending' && perm == 'admin'">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">Mégse</button>
+            <button type="button" class="btn btn-warning" ng-click="declineFree()" disableonrequest>Elutasítás</button>
+            <button type="button" class="btn btn-primary" ng-click="acceptFree()" disableonrequest>Elfogadás</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->
+
+<!-- JS Plugins Init. -->
+<script>
+    (function() {
+        angular.element(document).ready(function () {
+            HSCore.components.HSFlatpickr.init('.js-flatpickr')
+            HSCore.components.HSFlatpickr.init('#js-flatpickr-disabling-dates', {
+				disable: [
+					function (date) {
+						// return true to disable
+						return (date.getDay() === 0 || date.getDay() === 6);
+					}
+				],
+                locale: "hu",
+                minDate: new Date().fp_incr(3)
+			})    
+        });
+    })()
+</script>

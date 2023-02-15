@@ -1,0 +1,33 @@
+/*------------------------------------
+  Accordion
+------------------------------------*/
+
+.accordion-button:focus {
+  box-shadow: none;
+}
+
+.accordion-button:not(.collapsed) {
+  box-shadow: none;
+}
+
+.accordion-button {
+  color: $accordion-button-color;
+  font-size: $accordion-button-font-size;
+  font-weight: $accordion-button-font-weight;
+  padding: $accordion-padding-y $accordion-padding-x;
+
+  @include media-breakpoint-down(sm) {
+    padding: calc($accordion-padding-y / 1.5) calc($accordion-padding-x / 1.5);
+  }
+}
+
+.accordion-body {
+  padding-top: 0;
+}
+
+.accordion-button,
+.accordion-body {
+  @include media-breakpoint-down(sm) {
+    padding: calc($accordion-padding-y / 1.5) calc($accordion-padding-x / 1.5);
+  }
+}

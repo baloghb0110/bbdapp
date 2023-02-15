@@ -1,0 +1,29 @@
+/*------------------------------------
+  Form Control
+------------------------------------*/
+
+.form-control-plaintext {
+  &::placeholder {
+    color: $input-placeholder-color;
+    // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+    opacity: 1;
+  }
+}
+
+.form-control-title {
+  font-size: $input-title-font-size;
+  line-height: $input-title-line-height;
+  font-weight: $input-title-font-weight;
+  border: none;
+  padding: 0;
+
+  &:focus {
+    box-shadow: none;
+  }
+}
+
+// Single Number
+.form-control-single-number {
+  font-size: $form-control-single-number-font-size;
+  text-align: center;
+}

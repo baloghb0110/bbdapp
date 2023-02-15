@@ -1,0 +1,82 @@
+/*------------------------------------
+  Profile Cover
+------------------------------------*/
+
+.profile-cover {
+  position: relative;
+  height: $profile-cover-height;
+  padding: $profile-cover-padding-y $profile-cover-padding-x;
+  @include border-radius($profile-cover-border-radius);
+}
+
+.profile-cover-content {
+  position: relative;
+  z-index: 1;
+}
+
+.profile-cover-img-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: $profile-cover-height;
+  background-color: $profile-cover-bg-color;
+  @include border-radius($profile-cover-border-radius);
+}
+
+.profile-cover-img {
+  width: 100%;
+  height: $profile-cover-height;
+  object-fit: cover;
+  vertical-align: top;
+  @include border-radius($profile-cover-border-radius);
+}
+
+.profile-cover-avatar {
+  display: flex;
+  background-color: $profile-cover-avatar-bg-color;
+  border: $profile-cover-border-width solid $profile-cover-border-color;
+  margin: -(calc($avatar-width-xxl / 1.25)) auto .5rem auto;
+}
+
+.profile-cover-content {
+  padding: $profile-cover-content-padding-y $profile-cover-content-padding-x;
+}
+
+// Uploader
+.profile-cover-uploader {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+
+.profile-cover-uploader-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.profile-cover-uploader-label {
+  margin-bottom: 0;
+}
+
+// Large Devices
+@include media-breakpoint-up(lg) {
+  .profile-cover {
+    height: $profile-cover-lg-height;
+  }
+
+  .profile-cover-img-wrapper {
+    height: $profile-cover-lg-height;
+  }
+
+  .profile-cover-img {
+    height: $profile-cover-lg-height;
+  }
+}

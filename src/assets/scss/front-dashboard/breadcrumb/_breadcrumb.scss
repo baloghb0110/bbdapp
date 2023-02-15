@@ -1,0 +1,17 @@
+/*------------------------------------
+  Breadcrumb
+------------------------------------*/
+
+.breadcrumb {
+  .breadcrumb-item {
+    color: $breadcrumb-item-color;
+  }
+
+  .breadcrumb-link {
+    color: $breadcrumb-link-color;
+
+    &:hover {
+      color: $breadcrumb-link-hover-color;
+    }
+  }
+}

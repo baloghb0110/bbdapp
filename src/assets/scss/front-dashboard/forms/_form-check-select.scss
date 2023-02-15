@@ -1,0 +1,49 @@
+/*------------------------------------
+  Form Check Select
+------------------------------------*/
+
+.form-check-select {
+  cursor: pointer;
+
+  .form-check-input {
+    position: relative;
+    z-index: 2;
+    width: $form-check-select-width;
+    height: $form-check-select-height;
+    background-color: $form-check-select-input-bg-color;
+    border-width: 0;
+    @include border-radius($form-check-select-border-radius);
+
+    &:hover {
+      background-color: $form-check-select-input-hover-bg-color;
+    }
+
+    &:checked[type="checkbox"] {
+      background-image: none;
+
+      ~ .form-check-stretched-bg::before {
+        background-color: $form-check-select-stretched-bg-color;
+      }
+
+      &:hover {
+        background-color: $form-check-input-checked-bg-color;
+      }
+    }
+  }
+
+  .form-check-stretched-bg::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    pointer-events: auto;
+    content: '';
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0);
+  }
+}
+
+.form-check-select:hover .form-check-stretched-bg::before {
+  background-color: $form-check-select-stretched-bg-color;
+}

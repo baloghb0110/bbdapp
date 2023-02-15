@@ -1,0 +1,234 @@
+/*------------------------------------
+  Tom Select
+------------------------------------*/
+
+.tom-select-custom {
+  .input-group-sm > .ts-wrapper .ts-control.has-items,
+  .ts-wrapper.form-select-sm .ts-control.has-items,
+  .ts-wrapper.form-control-sm .ts-control.has-items {
+    padding: $form-select-padding-y-sm $form-select-indicator-padding $form-select-padding-y-sm $form-select-padding-x-sm;
+  }
+
+  .input-group-lg > .ts-wrapper > .ts-control,
+  .ts-wrapper.form-control-lg .ts-control,
+  .ts-wrapper.form-select-lg .ts-control {
+    padding: $form-select-padding-y-lg $form-select-indicator-padding $form-select-padding-y-lg $form-select-padding-x-lg;
+  }
+
+  .hs-select-single-multiple {
+    .item {
+      display: none !important;
+    }
+  }
+
+  .ts-wrapper.form-select .ts-control,
+  .ts-wrapper.multi .ts-control.has-items.hs-select-single-multiple {
+    padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;
+
+    & .tom-select-custom-hide {
+      display: none;
+    }
+
+    &:focus,
+    .focus {
+      box-shadow: none;
+    }
+  }
+
+  .ts-dropdown,
+  .ts-control,
+  .ts-control input {
+    color: $form-select-color;
+  }
+
+  .ts-dropdown,
+  .ts-dropdown.form-control,
+  .ts-dropdown.form-select {
+    background-color: $form-select-bg;
+    border: $form-select-border-width solid $form-select-border-color;
+    @include border-radius($form-select-border-radius, 0);
+    box-shadow: $form-select-box-shadow;
+  }
+
+  .ts-dropdown .create:hover,
+  .ts-dropdown .option:hover,
+  .ts-dropdown .active {
+    color: $select-active-color;
+    background-color: $select-active-bg-color;
+  }
+
+  .ts-dropdown .option,
+  .ts-dropdown .optgroup-header,
+  .ts-dropdown .no-results,
+  .ts-dropdown .create {
+    padding: $select-padding-y $select-padding-x * 2.5 $select-padding-y $select-padding-x;
+  }
+
+  .ts-dropdown .option {
+    position: relative;
+
+    &::after {
+      display: none;
+      position: absolute;
+      top: 50%;
+      right: $select-option-pseudo-right-offset;
+      width: $select-option-pseudo-width;
+      height: $select-option-pseudo-height;
+      background-image: escape-svg($select-option-pseudo-bg);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: $select-option-pseudo-width $select-option-pseudo-height;
+      content: '';
+      transform: translateY(-50%);
+    }
+
+    &.selected::after {
+      display: block;
+    }
+  }
+
+  .ts-control,
+  .ts-wrapper.single .ts-control.input-active {
+    cursor: pointer;
+  }
+
+  .ts-control.focus {
+    box-shadow: none;
+  }
+
+  .input-group {
+    & > .ts-wrapper,
+    & > .form-select {
+      flex-grow: unset;
+    }
+
+    & > .form-select {
+      width: auto;
+    }
+  }
+
+  .ts-wrapper  {
+    display: inline-block;
+  }
+
+  .ts-dropdown {
+    .optgroup-header {
+      font-weight: bold;
+      color: $black;
+    }
+
+    .optgroup {
+      &:before {
+        display: none;
+      }
+
+      .option {
+        padding-left: $select-padding-x + .5;
+      }
+    }
+  }
+
+  .ts-wrapper {
+    &.multi .ts-control > {
+      & div {
+        color: $select-selection-tag-color;
+        background-color: $select-selection-tag-bg-color;
+        font-size: $select-tag-font-size;
+        padding: $select-selection-tag-padding-y $select-selection-tag-padding-x;
+        border-radius: $select-selection-tag-border-radius;
+      }
+
+      & .ts-custom-placeholder {
+        background-color: transparent;
+      }
+    }
+
+    &.plugin-remove_button .item .remove {
+      border-left: none;
+      color: $select-tag-remove-icon-color;
+
+      &:hover {
+        background: transparent;
+        color: $select-tag-remove-icon-hover-color;
+      }
+    }
+  }
+
+  .plugin-dropdown_input .dropdown-input-wrap {
+    padding: $select-dropdown-input-wrap-padding;
+
+    .dropdown-input {
+      color: $input-color;
+      border: $select-dropdown-input-wrap-border-width solid $select-dropdown-input-wrap-border-color;
+      border-radius: $select-dropdown-input-wrap-border-radius;
+
+      &:focus {
+        color: $input-focus-color;
+      }
+
+      &::placeholder {
+        color: $input-placeholder-color;
+        // Override Firefox's unusual default opacity; see https://github.com/twbs/bootstrap/pull/11526.
+        opacity: 1;
+      }
+    }
+  }
+
+  .ts-custom-placeholder,
+  .ts-selected-count {
+    color: $select-input-placeholder-color !important;
+  }
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  .tom-select-custom#{$infix}-end {
+    @include media-breakpoint-up($breakpoint) {
+      .ts-dropdown {
+        left: auto;
+        right: 0;
+        text-align: left;
+      }
+    }
+  }
+}
+
+.tom-select-custom-with-tags {
+  .ts-wrapper.form-select .ts-control,
+  .tom-select-custom .ts-wrapper.multi .ts-control.has-items.hs-select-single-multiple {
+    padding: calc( 0.375rem - 1px - 0px) 0.75rem calc( 0.375rem - 1px - 4px - 0px);
+  }
+
+  .ts-wrapper.multi .ts-control > .item {
+    color: $select-tag-input-color;
+    background-color: $select-tag-input-bg-color;
+  }
+}
+
+// Input Group
+.input-group .tom-select-custom .form-select:not(:first-child) {
+  @include border-start-radius(0);
+}
+
+.input-group .tom-select-custom .form-select:last-child {
+  @include border-start-radius(0);
+}
+
+// Form Select Invite User
+.tom-select-custom .tom-select-custom-form-select-invite-user {
+  width: auto;
+  height: 100%;
+}
+
+// Form Select - No Gutters
+.tom-select-custom .ts-wrapper.tom-select-form-select-ps-0 {
+  .ts-control.has-items {
+    padding-left: 0;
+  }
+}
+
+// Transparent Background
+.tom-select-custom-bg-transparent .form-select {
+  background-color: transparent;
+}

@@ -1,0 +1,43 @@
+<!-- ========== MAIN CONTENT ========== -->
+<main id="content" role="main" class="main" style="padding-left: 0;">
+    <!-- Content -->
+    <div class="container py-5 py-sm-7">
+        <div class="mx-auto" style="max-width: 30rem;">
+            <div class="text-center">
+                <p style="color:#377dff; font-size:40px; font-weight: bolder;">BBD <span style="color:white;"">Comtech</span></p>
+            </div>
+
+            <!-- Card -->
+            <div class="card card-lg mb-5">
+                <div class="card-body">
+                    
+                    <!-- Form -->
+                    <form autocomplete="off" novalidate>
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label class="form-label" for="signinSrEmail">Felhasználónév</label>
+                            <input type="text" ng-model="username" class="form-control form-control-lg" name="username" id="signinSrEmail" tabindex="1" placeholder="Felhasználónév" aria-label="Felhasználónév" required>
+                            <span class="invalid-feedback">Please enter a valid email address.</span>
+                        </div>
+                        <!-- End Form -->
+
+                        <!-- Form -->
+                        <div class="mb-4">
+                            <label class="form-label" for="signinSrEmail">Jelszó</label>
+                            <input type="password" ng-model="password" class="form-control form-control-lg" name="password" id="signupSrPassword" placeholder="3+ karakter szükséges" aria-label="3+ karakter szükséges" required minlength="3">
+                            <span class="invalid-feedback">Please enter a valid password.</span>
+                        </div>
+                        <!-- End Form -->
+                        <div class="d-grid">
+                            <button ng-click="login()" type="submit" class="btn btn-primary btn-lg">Belépés</button>
+                        </div>
+                    </form>
+                    <!-- End Form -->
+                </div>
+            </div>
+            <!-- End Card -->
+        </div>
+    </div>
+    <!-- End Content -->
+</main>
+<!-- ========== END MAIN CONTENT ========== -->

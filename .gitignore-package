@@ -1,0 +1,5 @@
+.DS_Store
+__MACOSX/
+.git/*
+/node_modules/*
+/src/.tmp/*

@@ -1,0 +1,11 @@
+/*------------------------------------
+  Gradients
+------------------------------------*/
+
+.gradient-radial-sm-primary {
+  background-image: radial-gradient(50% 50% at 50% 50%, rgba($gradient-primary, 0.1) 0%, $gradient-transparent 100%);
+}
+
+.gradient-y-lg-dark {
+  @include gradient-y($start-color: $gradient-transparent, $end-color: $gradient-dark);
+}

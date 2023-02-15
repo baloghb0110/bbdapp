@@ -1,0 +1,140 @@
+/*------------------------------------
+  Form Switch
+------------------------------------*/
+
+.form-switch {
+  position: relative;
+
+  &.row {
+    display: flex;
+    align-items: center;
+    padding-left: 0;
+
+    .form-check-input {
+      float: none;
+      margin-left: auto;
+      margin-right: 0;
+    }
+  }
+
+  .form-check-input {
+    width: $form-switch-input-width;
+    height: $form-switch-input-height;
+    border-width: $form-switch-input-border-width;
+    background-color: $form-switch-input-bg-color;
+    margin-top: -(calc(calc($form-check-input-width / 2) / 2));
+    margin-right: $form-switch-margin-x;
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+  }
+}
+
+.form-check-input:checked {
+  background-color: $form-check-input-checked-bg-color;
+}
+
+// Between
+.form-switch-between {
+  align-items: center;
+  padding-left: 0;
+
+  .form-check-input {
+    float: none;
+    align-items: center;
+    margin-left: $form-switch-between-margin-x;
+  }
+
+  .form-check-label {
+    cursor: inherit;
+  }
+}
+
+// Promotion
+.form-switch-promotion {
+  position: relative;
+  min-width: $form-switch-promotion-min-width;
+}
+
+.form-switch-promotion-container {
+  position: absolute;
+  top: -$form-switch-promotion-container-position-top-offset;
+  left: $form-switch-promotion-container-position-left-offset;
+}
+
+.form-switch-promotion-body {
+  display: flex;
+  align-items: center;
+  margin-top: -$form-switch-promotion-body-margin-y;
+}
+
+.form-switch-promotion-arrow {
+  margin-right: -$form-switch-promotion-arrow-margin-x;
+}
+
+.form-switch-promotion-text {
+  display: block;
+  margin-top: $form-switch-promotion-text-margin-y;
+}
+
+// Darkmode With Icons
+.form-switch-darkmode-with-icons {
+  margin-bottom: 0;
+
+  .form-check-input {
+    position: relative;
+    width: $form-switch-darkmode-with-icons-input-width;
+    height: $form-switch-darkmode-with-icons-input-height;
+    border-width: $form-switch-darkmode-with-icons-input-border-width;
+    background-color: $form-switch-darkmode-with-icons-input-bg-color;
+    cursor: pointer;
+    margin-top: -($line-height-base - $form-check-input-width) * .2;
+    margin-right: $form-switch-darkmode-with-icons-margin-x;
+
+    &:active {
+      filter: $form-check-input-active-filter;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      top: calc(50% - calc($form-switch-darkmode-with-icons-input-before-height / 2));
+      width: $form-switch-darkmode-with-icons-input-before-width;
+      height: $form-switch-darkmode-with-icons-input-before-height;
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: $form-switch-darkmode-with-icons-input-before-width $form-switch-darkmode-with-icons-input-before-height;
+      content: '';
+      transition: $form-switch-darkmode-with-icons-input-before-transition;
+    }
+
+    &::before {
+      left: $form-switch-darkmode-with-icons-input-before-left-offset;
+      color: $form-switch-darkmode-with-icons-input-before-color;
+      background-image: escape-svg($form-switch-darkmode-with-icons-input-before-bg-image);
+      transform: scale(0);
+    }
+
+    &::after {
+      right: $form-switch-darkmode-with-icons-input-before-left-offset;
+      opacity: 1;
+      background-image: escape-svg($form-switch-darkmode-with-icons-input-after-bg-image);
+      transform: scale(1);
+    }
+
+    &:checked {
+      background-color: $form-check-input-checked-bg-color;
+
+      &::before {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      &::after {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+  }
+}

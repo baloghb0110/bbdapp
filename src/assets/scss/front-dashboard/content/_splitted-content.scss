@@ -1,0 +1,107 @@
+/*------------------------------------
+  Splitted Content
+------------------------------------*/
+
+.splitted-content-main {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbar-vertical.splitted-content-navbar {
+  width: $navbar-brand-width + $splitted-content-mini-width;
+
+  .navbar-vertical-content {
+    height: 100%;
+  }
+
+  .navbar-nav {
+    margin-left: $splitted-content-mini-width;
+  }
+
+  .navbar-vertical-footer {
+    margin-left: $splitted-content-mini-width;
+  }
+}
+
+.splitted-content-bordered {
+  &:not(:last-child) {
+    border-right: $splitted-content-col-border-width solid $splitted-content-col-border-color;
+  }
+
+  &:not(:first-child) {
+    border-left: $splitted-content-col-border-width solid $splitted-content-col-border-color;
+  }
+}
+
+.navbar-vertical-aside ~ .splitted-content-small.splitted-content-bordered:not(:last-child) {
+  margin-left: -$splitted-content-col-border-width;
+}
+
+.splitted-content-mini,
+.splitted-content-small {
+  background-color: $splitted-content-bg-color;
+
+  &.offcanvas {
+    z-index: $splitted-content-mini-offcanvas-z-index;
+  }
+}
+
+.splitted-content-mini {
+  width: $splitted-content-mini-width;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .navbar-brand {
+    margin-right: 0;
+  }
+
+  .offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+  }
+}
+
+.splitted-content-small,
+.splitted-content-fluid {
+  min-height: 100vh;
+}
+
+.splitted-content-small {
+  flex: 0 0 auto;
+  width: $splitted-content-small-width;
+  max-width: 100%;
+}
+
+.splitted-content-fluid {
+  flex-basis: 0;
+  flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.header ~ .main {
+  .splitted-content-mini,
+  .splitted-content-small,
+  .splitted-content-fluid {
+    min-height: calc(100vh - #{$navbar-height});
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-up(xl) {
+  .splitted-content-toggle {
+    display: none;
+  }
+}
+
+// Extra Large Devices
+@include media-breakpoint-up(lg) {
+  .splitted-content-mini {
+    position: static;
+    visibility: visible;
+    transform: translateX(0%);
+  }
+}

@@ -1,0 +1,11 @@
+/*------------------------------------
+  Badge
+------------------------------------*/
+
+.badge {
+  line-height: normal;
+
+  .legend-indicator {
+    margin-right: $badge-legend-indicator-margin-x;
+  }
+}

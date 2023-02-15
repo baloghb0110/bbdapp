@@ -1,0 +1,57 @@
+/*------------------------------------
+  Form Check Label Highlighter
+------------------------------------*/
+
+.form-check-label-highlighter {
+  position: relative;
+  padding-left: 0;
+
+  .form-check-img {
+    @include border-radius($form-check-label-highlighter-border-radius);
+  }
+
+  .form-check-input {
+    width: 100%;
+    height: 100%;
+    background: none;
+    border-width: 0;
+    margin-left: 0;
+  }
+
+  .form-check-label {
+    border: $form-check-label-highlighter-border-width solid $form-check-label-highlighter-border-color;
+    @include border-radius($form-check-label-highlighter-border-radius);
+
+    &::before {
+      position: absolute;
+      top: $form-check-label-highlighter-pseudo-top-offset;
+      right: $form-check-label-highlighter-pseudo-top-offset;
+      width: $form-check-label-highlighter-pseudo-width;
+      height: $form-check-label-highlighter-pseudo-height;
+      background-image: escape-svg($form-check-label-highlighter-bg-image);
+      background-repeat: no-repeat;
+      background-position: right center;
+      background-size: $form-check-label-highlighter-pseudo-width $form-check-label-highlighter-pseudo-height;
+      opacity: 0;
+      content: '';
+    }
+  }
+
+  .form-check-input {
+    &:checked[type="checkbox"],
+    &:checked[type="radio"] {
+      background-image: none;
+      background-color: transparent;
+      border-width: 0;
+      
+      ~ .form-check-label {
+        border-color: $form-check-label-highlighter-border-active-color;
+
+        &::before {
+          background-image: escape-svg($form-check-label-highlighter-checked-bg-image);
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

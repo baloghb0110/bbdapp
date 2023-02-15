@@ -1,0 +1,34 @@
+/*------------------------------------
+  Input Group Light
+------------------------------------*/
+
+.input-group-light .form-control,
+.input-group-light .form-select,
+.form-control-light,
+.form-select-light {
+  background-color: $input-group-light-bg-color;
+  box-shadow: none;
+
+  &:disabled,
+  &[readonly] {
+    background-color: transparent;
+  }
+}
+
+// Hover Light
+.input-group-hover-light .form-control,
+.input-group-hover-light .form-select,
+.form-control-hover-light,
+.form-select-hover-light {
+  &:hover,
+  &.focus,
+  &:focus {
+    background-color: $input-group-hover-light-bg-color;
+    box-shadow: none;
+  }
+
+  &:disabled,
+  &[readonly] {
+    background-color: transparent;
+  }
+}

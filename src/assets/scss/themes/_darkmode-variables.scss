@@ -1,0 +1,265 @@
+//
+// Dark Mode
+//
+
+
+
+// Gradients
+// =========================================================
+
+$gradient-white:                                            darken($white-bg, 6%);
+$gradient-dark:                                             $white-bg;
+
+
+
+// Forms
+// =========================================================
+
+// Colors
+$input-color:                                               $active-color;
+$input-focus-color:                                         $active-color;
+$input-placeholder-color:                                   $body-color;
+$input-group-addon-color:                                   $body-color;
+$form-select-indicator-color:                               $body-color;
+$form-label-color:                                          $dark;
+$form-label-secondary-color:                                $body-color;
+
+// Background
+$form-select-bg:                                            $card-bg;
+$form-check-input-bg:                                       $gray-600;
+$form-switch-input-bg-color:                                $gray-400;
+$form-check-select-stretched-bg-color:                      rgba($white, .035);
+$input-group-hover-light-bg-color:                          $white-bg;
+$input-group-hover-light-bg-hover-color:                    darken($white-bg, 3%);
+
+
+
+// Form Check Select
+// =========================================================
+
+// Colors
+$form-check-select-stretched-input-bg-image-color:          $gray-500;
+
+// Background
+$form-check-select-input-bg-color:                          $gray-600;
+
+
+
+// Nav
+// =========================================================
+
+// Colors
+$nav-link-color:                                            $white-70;
+$nav-link-hover-color:                                      $link-hover-color;
+$nav-pills-link-active-color:                               $nav-link-color;
+$nav-segment-link-hover-color:                              $link-hover-color;
+
+// Backgrounds
+$nav-pills-link-active-bg:                                  rgba($white, .075);
+$nav-pills-link-hover-bg-color:                             rgba($white, .075);
+$nav-segment-bg-color:                                      $gray-800;
+$nav-segment-bg-color-on-card:                              $gray-900;
+$nav-segment-link-active-bg-color:                          $white-bg;
+
+// Borders
+$nav-tabs-link-active-border-color:                         lighten($gray-800, 6%);
+
+
+
+// Navbar
+// =========================================================
+
+// Backgrounds
+$navbar-dark-bg-color:                                      $white-bg;
+$navbar-dark-aside-toggler-bg-color:                        $white-bg;
+
+
+
+// Drop Down
+// =========================================================
+
+// Colors
+$dropdown-link-color:                                       $white-70;
+$dropdown-link-active-color:                                $active-color;
+
+// Backgrounds
+$dropdown-link-hover-bg:                                    $nav-pills-link-active-bg;
+
+
+
+// Avatar
+// =========================================================
+
+// Backgrounds
+$avatar-bg-color:                                           darken($white-bg, 2%);
+
+
+
+// Buttons
+// =========================================================
+
+// Color
+$btn-white-hover-color:                                     $link-hover-color;
+$btn-group-segment-link-color:                              $body-color;
+$btn-group-segment-link-active-color:                       $active-color;
+
+// Backgrounds
+$btn-white-bg-color:                                        $white-bg;
+
+
+
+// Close
+// =========================================================
+
+// Colors
+$btn-close-color:                                           $text-muted;
+
+
+
+// Devices
+// =========================================================
+
+// Borders
+$device-browser-header-border-color:                        $border-color;
+
+// Shadows
+$device-browser-box-shadow:                                 0 2.75rem 5.5rem -3.5rem rgba($gray-900, .5);
+
+
+
+// Go To
+// =========================================================
+
+// Colors
+$go-to-color:                                               $body-color;
+
+
+
+// List Group
+// =========================================================
+
+// Colors
+$list-group-color:                                          $body-color;
+
+// Borders
+$list-group-border-color:                                   $border-color;
+$list-group-striped-bg-color:                               rgba($white, .1);
+
+// Backgrounds
+$list-group-bg:                                             transparent;
+
+
+
+// Modal
+// =========================================================
+
+// Backgrounds
+$modal-content-bg:                                          $white-bg;
+
+
+
+// Pagination
+// =========================================================
+
+// Colors
+$pagination-color:                                          $body-color;
+$pagination-active-color:                                   $active-color;
+$pagination-disabled-color:                                 $disabled-color;
+
+// Backgrounds
+$pagination-bg:                                             transparent;
+$pagination-active-bg:                                      $active-bg-color;
+$pagination-disabled-bg:                                    $pagination-bg;
+
+
+
+// Popover
+// =========================================================
+
+// Color
+$popover-dark-body-color:                                   $white-70;
+
+// Background
+$popover-dark-header-bg-color:                              $white-bg;
+$popover-dark-bg-color:                                     $white-bg;
+
+// Border
+$popover-dark-arrow-color:                                  $popover-dark-bg-color;
+
+
+
+// Tooltips
+// =========================================================
+
+// Backgrounds
+$tooltip-bg:                                                darken($gray-800, 10%);
+
+
+
+// Chartjs
+// =========================================================
+
+// Backgrounds
+$chartjs-tooltip-bg-color:                                  $tooltip-bg;
+$chartjs-tooltip-arrow-pointer-bg:                          str-replace(url("data:image/svg+xml,%3Csvg width='#{$chartjs-tooltip-arrow-pointer-pseudo-width}' height='#{$chartjs-tooltip-arrow-pointer-pseudo-height}' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 50 22.49'%3E%3Cpath fill='#{$chartjs-tooltip-bg-color}' d='M0,0h50L31.87,19.65c-3.45,3.73-9.33,3.79-12.85,0.13L0,0z'/%3E%3C/svg%3E"), "#", "%23");
+
+
+
+// Daterangpicker
+// =========================================================
+
+// Colors
+$daterangepicker-selected-color:                            $white;
+$daterangepicker-week-color:                                $gray-300;
+
+// Backgrounds
+$daterangepicker-off-date-bg-color:                         transparent;
+$daterangepicker-in-range-bg-color:                         $white-bg;
+
+
+
+// Select
+// =========================================================
+
+// Colors
+$select-input-placeholder-color:                            $input-placeholder-color;
+
+
+
+// Quill
+// =========================================================
+
+// Colors
+$quill-editor-p-color:                                      $input-color;
+
+
+
+// Flatpickr
+// =========================================================
+
+// Colors
+$flatpickr-weekday-color:                                   $gray-300;
+$flatpickr-day-prev-and-next-month-day-color:               $disabled-color;
+
+
+
+// Fullcalendar
+// =========================================================
+
+// Colors
+$fullcalendar-event-color:                                  $white-bg;
+$fullcalendar-cell-cushion-color:                           $flatpickr-weekday-color;
+$fullcalendar-daygrid-block-event-color:                    $fullcalendar-event-color;
+
+// Backgrounds
+$fullcalendar-highlight-bg-color:                           $white-bg;
+$fullcalendar-event-bg-color:                               $white-bg;
+
+
+
+// JSVectormap
+// =========================================================
+
+// Backgrounds
+$jvm-tooltip-bg-color:                                      $tooltip-bg;
+$jvm-zoom-bg-color:                                         $jvm-tooltip-bg-color;

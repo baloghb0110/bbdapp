@@ -1,0 +1,56 @@
+/*------------------------------------
+  JSVectormap
+------------------------------------*/
+
+.jvm-tooltip {
+  color: $jvm-tooltip-color;
+  background-color: $jvm-tooltip-bg-color;
+  font-family: $jvm-tooltip-font-family;
+  font-size: $jvm-tooltip-font-size;
+  z-index: $jvm-tooltip-z-index;
+  padding: $jvm-indicators-padding-y $jvm-indicators-padding-x;
+  margin: $jvm-indicators-margin;
+  box-shadow: $jvm-tooltip-box-shadow;
+  transform: translate($jvm-tooltip-translate-value);
+}
+
+.jvm-zoom-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  color: $jvm-zoom-color;
+  background-color: $jvm-zoom-bg-color;
+  border: $jvm-zoom-border-width solid $jvm-zoom-border-color;
+  width: $jvm-indicators-width;
+  height: $jvm-indicators-height;
+  @include border-radius($jvm-indicators-border-radius);
+  padding: 0;
+
+  &:hover,
+  &:focus {
+    color: $jvm-indicators-hover-color;
+  }
+}
+
+.jvm-zoom-btn.jvm-zoomin {
+  top: $jvm-zoomin-indicator-top-offset;
+  left: $jvm-zoomin-indicator-left-offset;
+}
+
+.jvm-zoom-btn.jvm-zoomout {
+  top: $jvm-zoomout-indicator-top-offset;
+  left: $jvm-zoomout-indicator-left-offset;
+}
+
+.jsvectormap-custom-wrapper {
+  height: $jvm-container-height-sm;
+
+  @include media-breakpoint-up(md) {
+    height: $jvm-container-height-md;
+  }
+
+  @include media-breakpoint-up(lg) {
+    height: $jvm-container-height-lg;
+  }
+}

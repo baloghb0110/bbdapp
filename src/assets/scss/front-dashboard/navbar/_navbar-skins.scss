@@ -1,0 +1,231 @@
+/*------------------------------------
+  Navbar Skins
+------------------------------------*/
+
+// Light
+.navbar-light {
+  // Brand
+  .navbar-brand {
+    &,
+    &:hover,
+    &:focus {
+      color: $navbar-light-brand-color;
+    }
+  }
+
+  // Toggler
+  .navbar-toggler {
+    color: $navbar-light-brand-color;
+    border-color: $navbar-light-toggle-border-color;
+  }
+
+  // Navbar Nav
+  .navbar-nav .nav-link {
+    color: $navbar-light-color;
+
+    &.active,
+    &:hover,
+    &:focus {
+      color: $navbar-light-hover-color;
+    }
+
+    &.active {
+      .dropdown-item-icon {
+        color: $navbar-light-hover-color;
+        opacity: 1;
+      }
+    }
+  }
+}
+
+// Dark
+.navbar-dark {
+  .navbar-nav {
+    .nav-item:hover .nav-link {
+      &,
+      &:hover,
+      &:focus {
+        color: $navbar-dark-hover-color;
+      }
+    }
+
+    .navbar-dropdown-menu .nav-link {
+      color: $navbar-dark-color;
+
+      &.active,
+      &:hover,
+      &:focus {
+        color: $navbar-dark-hover-color;
+      }
+
+      &.disabled {
+        color: $navbar-dark-disabled-color;
+      }
+    }
+
+    .navbar-dropdown-menu {
+      .nav-tabs .nav-link {
+        &,
+        &:hover,
+        &:focus {
+          color: $navbar-light-color;
+        }
+
+        &.active {
+          color: $navbar-light-hover-color;
+        }
+      }
+    }
+
+    .navbar-dropdown-menu .nav-tabs .nav-item .nav-link:hover {
+      color: $navbar-light-hover-color;
+    }
+
+    .nav-item:hover .navbar-dropdown-menu .nav-link {
+      color: $navbar-light-color;
+
+      &.active {
+        color: $navbar-light-hover-color;
+      }
+    }
+
+    .navbar-dropdown-menu .dropdown-item-icon {
+      color: $navbar-light-color;
+    }
+  }
+
+  .navbar-toggler-text {
+    color: $navbar-dark-toggler-text-color;
+  }
+
+  .nav-link.dropdown-toggle {
+    &::after {
+      background-image: $dropdown-toggle-pseudo-light-bg;
+    }
+  }
+
+  .input-group-hover-light {
+    .form-control {
+      &,
+      &:hover {
+        background-color: $navbar-dark-input-group-hover-light-bg-color;
+      }
+
+      &:focus {
+        background-color: $navbar-dark-input-group-hover-light-bg-focus-color;
+      }
+    }
+  }
+
+  .navbar-aside-toggler {
+    color: $navbar-dark-aside-toggler-color;
+    background-color: $navbar-dark-aside-toggler-bg-color;
+    border-color: $navbar-dark-aside-toggler-border-color;
+  }
+
+  .nav-tabs .nav-item .nav-link:hover {
+    color: $navbar-dark-hover-color;
+  }
+
+  .nav-tabs .nav-link,
+  .nav-tabs .nav-item.show .nav-link {
+    color: $navbar-dark-color;
+  }
+
+  .nav-tabs .nav-collapse .nav-link:hover {
+    color: $navbar-light-hover-color;
+  }
+
+  .nav-pills .nav-link.active {
+    color: $navbar-dark-active-color;
+  }
+
+  &.navbar .nav-tabs .nav-item:hover > .nav-link:hover,
+  .nav-tabs > .nav-item > .nav-link:hover {
+    color: $navbar-dark-hover-color;
+  }
+
+  &.navbar .nav-tabs .nav-collapse .nav-item:hover > .nav-link:hover,
+  &.navbar .nav-tabs .nav-collapse .nav-.nav-link {
+    color: $navbar-light-hover-color;
+  }
+
+  // .nav-tabs .nav-item > .nav-link,
+  .nav-pills .nav-link,
+  &.navbar .nav-pills .nav-item:hover > .nav-link,
+  .nav-vertical.nav-pills .nav-item.show .nav-collapse .nav-link.active,
+  .nav-vertical.nav-pills .nav-collapse .nav-item .nav-link[aria-expanded]:hover,
+  .nav-vertical.nav-pills .nav-collapse .nav-link:hover,
+  .nav-vertical.nav-pills .nav-item .nav-link:hover,
+  .nav-vertical.nav-pills .nav-item .nav-link[aria-expanded]:hover {
+    color: $navbar-dark-color;
+  }
+
+  .navbar-vertical-footer {
+    border-color: $navbar-dark-vertical-footer-border-color;
+  }
+
+  .dropdown-menu:not(.navbar-dropdown-menu-borderless) .dropdown-item-icon {
+    color: $navbar-dark-color;
+  }
+
+  &.splitted-content-mini .nav-compact-icon .nav-icon {
+    color: $navbar-dark-color;
+
+    &:hover,
+    &.active {
+      background-color: $navbar-dark-compact-icon-bg-color;
+    }
+  }
+}
+
+.navbar-vertical-aside.navbar-dark {
+  .nav-link {
+    color: $navbar-dark-hover-color;
+  }
+}
+
+.navbar-vertical-aside-mini-mode .navbar-dark {
+  .nav-tabs .nav-item .nav-item > .nav-link {
+    color: $nav-link-color;
+  }
+
+  .nav-tabs .nav-collapse .nav-link {
+    color: $navbar-light-color;
+
+    &.active {
+      color: $nav-link-active-color;
+
+      &:hover {
+        color: $nav-link-active-color;
+      }
+    }
+  }
+
+  .nav-tabs .nav-collapse .nav-link:hover {
+    color: $navbar-light-hover-color;
+  }
+
+  .nav-pills .nav-link,
+  &.navbar .nav-pills .nav-item:hover > .nav-link,
+  .nav-vertical.nav-pills .nav-item.show .nav-collapse .nav-link.active,
+  .nav-vertical.nav-pills .nav-collapse .nav-item .nav-link[aria-expanded]:hover,
+  .nav-vertical.nav-pills .nav-collapse .nav-link:hover,
+  .nav-vertical.nav-pills .nav-item .nav-link:hover,
+  .nav-vertical.nav-pills .nav-item .nav-link[aria-expanded]:hover {
+    color: $navbar-light-color;
+  }
+
+  .nav-pills > .nav-item > .nav-link,
+  .nav-pills > * > .nav-item > .nav-link {
+    color: $navbar-dark-color;
+  }
+
+  .nav-vertical.nav-pills .nav-item .nav-link[aria-expanded]:hover {
+    color: $navbar-dark-active-color;
+  }
+
+  .nav-vertical.nav-pills .nav-link.active:hover {
+    background-color: $nav-pills-link-active-bg;
+  }
+}

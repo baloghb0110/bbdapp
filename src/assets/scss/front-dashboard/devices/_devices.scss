@@ -1,0 +1,23 @@
+/*------------------------------------
+  Devices
+------------------------------------*/
+
+.devices {
+  max-width: $devices-max-width;
+  position: relative;
+  overflow: hidden;
+  padding: 0 $devices-margin-x $devices-padding-y;
+  margin-right: -$devices-margin-x;
+  margin-left: -$devices-margin-x;
+
+  .device-browser {
+    margin-left: auto;
+    margin-right: $devices-margin-x-offset;
+  }
+  
+  @include media-breakpoint-down(lg) {
+    .device-browser {
+      margin-right: auto;
+    }
+  }
+}

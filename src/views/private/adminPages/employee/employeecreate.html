@@ -1,0 +1,197 @@
+<!-- Content -->
+<div class="content container-fluid">
+    <!-- Step Form -->
+    <form class="js-step-form py-md-5" id="resetme">
+        <div class="row justify-content-lg-center">
+            <div class="col-lg-8">
+                <!-- Content Step Form -->
+                <div id="addUserStepFormContent">
+                    <!-- Card -->
+                    <div id="addUserStepProfile" class="card card-lg active">
+                        <!-- Body -->
+                        <div class="card-body">
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Teljes név</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-sm-vertical">
+                                        <input type="text" class="form-control" ng-model="firstName" name="firstName" id="firstNameLabel" placeholder="Vezetéknév" aria-label="Vezetéknév">
+                                        <input type="text" class="form-control" ng-model="lastName" name="lastName" id="lastNameLabel" placeholder="Keresztnév" aria-label="Keresztnév">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="locationLabel" class="col-sm-3 col-form-label form-label">Lakcím</label>
+                                <div class="col-sm-9">
+                                    <div class="mb-4">
+                                        <div class="input-group input-group-sm-vertical">
+                                            <input type="text" class="form-control" ng-model="pcode" name="pcode" id="pcodeLabel" placeholder="Irányítószám" aria-label="Irányítószám">
+                                            <input type="text" class="form-control" ng-model="city" name="city" id="cityLabel" placeholder="Város" aria-label="Város">
+                                        </div>
+                                    </div>
+                
+                                    <div class="mb-4">
+                                        <div class="input-group input-group-sm-vertical">
+                                            <input type="text" class="form-control" ng-model="street" name="street" id="streetLabel" placeholder="Utca" aria-label="Utca">
+                                            <input type="text" class="form-control" ng-model="state" name="state" id="stateLabel" placeholder="Házszám" aria-label="Házszám">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Kártyaadatok</label>
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-sm-vertical">
+                                        <input type="text" class="form-control" ng-model="szemnumber" name="szemnumber" id="szemnumberLabel" placeholder="Személyi igazolvány szám" aria-label="Személyi igazolvány szám">
+                                        <input type="text" class="form-control" ng-model="adonumber" name="adonumber" id="adonumberLabel" placeholder="Adóigazolvány szám" aria-label="Adóigazolvány szám">
+                                        <input type="text" class="form-control" ng-model="tajnumber" name="tajnumber" id="tajnumberLabel" placeholder="Taj kártya szám" aria-label="Taj kártya szám">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="emailLabel" class="col-sm-3 col-form-label form-label">Email</label>
+
+                                <div class="col-sm-9">
+                                    <input type="email" class="form-control" ng-model="email" name="email" id="emailLabel" placeholder="elek@gmail.com" aria-label="elek@gmail.com">
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="js-add-field row mb-4" data-hs-add-field-options='{
+                            "template": "#addPhoneFieldTemplate",
+                            "container": "#addPhoneFieldContainer",
+                            "defaultCreated": 0
+                            }'>
+                                <label for="phoneLabel" class="col-sm-3 col-form-label form-label">Telefonszám</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-sm-vertical">
+                                        <input type="text" class="js-input-mask form-control" ng-model="phone" name="phone" id="phoneLabel" placeholder="+xx(xx)xxx-xx-xx" aria-label="+xx(xx)xxx-xx-xx" data-hs-mask-options='{
+                                        "mask": "+00(00)000-00-00"
+                                        }'>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form Group -->
+                            <div class="row mb-4">
+                                <label for="birthdateLabel" class="col-sm-3 col-form-label form-label">Születési idő</label>
+
+                                <div class="col-sm-9">
+                                    <div id="projectDeadlineNewProjectFlatpickr" class="js-flatpickr flatpickr-custom input-group"
+                                            data-hs-flatpickr-options='{
+                                                "appendTo": "#projectDeadlineNewProjectFlatpickr",
+                                                "dateFormat": "Y/m/d",
+                                                "wrap": true
+                                        }'>
+                                        <div class="input-group-prepend input-group-text" data-bs-toggle>
+                                        <i class="bi-calendar-week"></i>
+                                        </div>
+
+                                        <input type="text" class="flatpickr-custom-form-control form-control" ng-model="birthDate" id="birthDate" placeholder="Dátum kiválasztása" data-input value="2023/01/01">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form Group -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="firstNameLabel" class="col-sm-3 col-form-label form-label">Beosztás</label>
+
+                                <div class="col-sm-9">
+                                    <div class="input-group input-group-sm-vertical">
+                                        <input type="text" class="form-control" ng-model="pos" name="pos" id="posLabel" placeholder="Beosztás megnevezés" aria-label="Beosztás">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label for="locationLabel" class="col-sm-3 col-form-label form-label">Értesítendő személy(Baleset)</label>
+                                <div class="col-sm-9">
+                                    <div class="mb-4">
+                                        <div class="input-group input-group-sm-vertical">
+                                            <input type="text" class="form-control" ng-model="alertname" name="alertname" id="alertnameLabel" placeholder="Név" aria-label="Név">
+                                            <input type="text" class="js-input-mask form-control" ng-model="alertphone" name="phone" id="alertphoneLabel" placeholder="+xx(xx)xxx-xx-xx" aria-label="+xx(xx)xxx-xx-xx" data-hs-mask-options='{
+                                                "mask": "+00(00)000-00-00"
+                                                }'>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End Form -->
+
+                            <!-- Form -->
+                            <div class="row mb-4">
+                                <label class="col-sm-3 col-form-label form-label">Fénykép</label>
+
+                                <div class="col-sm-9">
+                                    <div class="d-flex align-items-center">
+                                        <!-- Avatar -->
+                                        <label class="avatar avatar-xl avatar-circle avatar-uploader me-5">
+                                            <img id="avatarImg" class="avatar-img" src="./src/avatar/{{f &&  f.name || hihi }}" alt="Image Description">
+                                        </label>
+                                        
+                                        <button type="file" class="btn btn-primary" ngf-select="onFileSelect($file, $invalidFiles)"
+                                        accept="image/*" ngf-max-size="3MB">
+                                        Fénykép feltöltése</button>
+                                        <!-- End Avatar -->
+                                    </div>
+                                    <br>
+                                    <div class="progress" style="height: 16px;" ng-show="f.progress >= 0">
+                                        <div class="progress-bar" role="progressbar" style="width: {{f.progress}}%;" aria-valuenow="{{f.progress}}" aria-valuemin="0" aria-valuemax="100">{{f.progress}}%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Body -->
+
+                        <!-- Footer -->
+                        <div class="card-footer d-flex justify-content-end align-items-center">
+                            <button type="button" class="btn btn-primary" data-hs-step-form-next-options='{
+                            "targetSelector": "#addUserStepBillingAddress"
+                            }' ng-click="addUser()" disableonrequest>
+                            Rögzítés
+                            </button>
+                        </div>
+                        <!-- End Footer -->
+                    </div>
+                    <!-- End Card -->
+                </div>
+            </div>
+            <!-- End Content Step Form -->
+        </div>
+    </form>
+</div>
+
+
+<!-- JS Plugins Init. -->
+<script>
+    (function() {
+        angular.element(document).ready(function () {
+            HSCore.components.HSFlatpickr.init('.js-flatpickr')
+            HSCore.components.HSFlatpickr.init('#js-flatpickr-disabling-dates', {
+				disable: [
+					function (date) {
+						// return true to disable
+						return (date.getDay() === 0 || date.getDay() === 6);
+					}
+				],
+                locale: "hu",
+			})
+        });
+    })()
+</script>

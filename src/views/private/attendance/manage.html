@@ -1,0 +1,124 @@
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h1 class="page-header-title">Jelenléti kezelés</h1>
+        </div>
+        <!-- End Col -->
+
+
+        <div class="col-auto">
+            <a class="btn btn-primary btn-sm" ng-click="closeAttendance()">
+                <i class="bi-check2-all me-1"></i> Jelenléti lezárása
+            </a>
+        </div>
+
+        <div class="col-auto">
+            <a class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#addMember" ng-click="checkAdded()">
+                <i class="bi-plus-circle me-1"></i> Dolgozói névsor
+            </a>
+        </div>
+        <!-- End Col -->
+    </div>
+    <!-- End Row -->
+</div>
+<!-- End Page Header -->
+
+<!-- Card -->
+<div class="card mb-3 mb-lg-5">
+    <!-- Header -->
+    <div class="card-header">
+        <div class="row justify-content-between align-items-center flex-grow-1">
+            <div class="col-md">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h4 class="card-header-title">Jelenléti lista</h4>
+                </div>
+            </div>
+            <!-- End Col -->
+        </div>
+        <!-- End Row -->
+    </div>
+    <!-- End Header -->
+
+    <div class="card-body">
+        <!-- Table -->
+        <div class="table-responsive" ng-if="memberList.length > 0">
+            <table class="table table-sm">
+                <thead class="thead-light">
+                    <tr>
+                        <th scope="col">Név</th>
+                        <th scope="col">Érkezési idő</th>
+                        <th scope="col">Érkezés aláírás</th>
+                        <th scope="col">Távozás idő</th>
+                        <th scope="col">Távozás aláírás</th>
+                        <th scope="col">Kezelés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="(key, data) in memberList">
+                        <th scope="row">{{ data.name }}</th>
+                        <td>{{ data.signStartDate }}</td>
+                        <td><img ng-if="data.signStartName != ''" style="max-width: 100px; max-height: 100px;" ng-src='signatures/{{ data.dbid }}/{{ data.signStartName }}.png'></td>
+                        <td>{{ data.signEndDate }}</td>
+                        <td><img ng-if="data.signEndName != ''" style="max-width: 100px; max-height: 100px;" ng-src='signatures/{{ data.dbid }}/{{ data.signEndName }}.png'></td>
+                        <td><button type="button" ng-class="data.signStartName != '' ? 'btn btn-white btn-sm' : 'btn btn-primary btn-sm'" class="btn btn-primary btn-sm" ng-click="createSign(data.dbid, 'start')">Érkezés</button> <button ng-if="data.signStartName != ''" type="button" class="btn btn-primary btn-sm" ng-click="createSign(data.dbid, 'end')">Távozás</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-center" ng-if="memberList.length == 0">
+            <br>
+            <h2>A lista üres</h2>
+        </div>
+    </div>
+</div>
+<!-- End Card -->
+
+<div class="card">
+    <div class="card-header card-header-content-sm-between">
+        <div class="mb-2 mb-sm-0">
+          <h4 class="card-header-title">Jelentés</h4>
+          <p class="card-text fs-5">Napi jelentésnek fenntartott hely</p>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="mb-4">
+            <textarea ng-model="comment" id="exampleFormControlTextarea1" class="form-control" rows="8"></textarea>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="addMember" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="addMemberLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="addMemberLabel">Alkalmazottak</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="table-responsive">
+                <table class="table table-sm">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Név</th>
+                            <th scope="col">Kezelés</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="(key, data) in activeMember">
+                            <th scope="row">{{ data.name }}</th>
+                            <th><button ng-if="!checkAddedForButton(data.dbid)" type="button" class="btn btn-secondary btn-sm" ng-click="addToList(data.dbid, data.name)">Hozzáad</button> <button ng-if="checkAddedForButton(data.dbid)" type="button" class="btn btn-danger btn-sm" ng-click="removeFromList(data.dbid)">Törlés</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">Mégse</button>
+            <button type="button" ng-click="listCreate()" class="btn btn-primary" data-bs-dismiss="modal">Rögzítés</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->

@@ -1,0 +1,88 @@
+<!-- Page Header -->
+<div class="page-header">
+    <div class="row align-items-center">
+        <div class="col">
+            <h1 class="page-header-title">Alkalmazottak</h1>
+        </div>
+        <!-- End Col -->
+
+        <div class="col-auto">
+            <a class="btn btn-primary" ng-click="add()">
+                <i class="bi-plus-circle me-1"></i> Alkalmazott felvétele
+            </a>
+        </div>
+        <!-- End Col -->
+    </div>
+    <!-- End Row -->
+</div>
+<!-- End Page Header -->
+
+<!-- Card -->
+<div class="card mb-3 mb-lg-5">
+    <!-- Header -->
+    <div class="card-header">
+      <div class="row justify-content-between align-items-center flex-grow-1">
+        <div class="col-md">
+          <div class="d-flex justify-content-between align-items-center">
+            <h4 class="card-header-title">Alkalmazotti lista</h4>
+          </div>
+        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Row -->
+    </div>
+    <!-- End Header -->
+
+<!-- Table -->
+<div class="table-responsive" ng-if="earray.length > 0">
+    <table class="table table-sm">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Név</th>
+                <th scope="col">Születési idő</th>
+                <th scope="col">Munkakör</th>
+                <th scope="col">E-Mail</th>
+                <th scope="col">Státusz</th>
+                <th scope="col">Kezelés</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="(key, data) in earray">
+                <th scope="row">{{ data.name }}</th>
+                <td>{{ data.data.birthdate }}</td>
+                <td>{{ data.data.pos }}</td>
+                <td>{{ data.data.mail }}</td>
+                <td><span ng-if="data.status === 'active'" class="badge bg-soft-success text-success">Aktív</span><span ng-if="data.status === 'inactive'" class="badge bg-soft-danger text-danger">Inaktív</span></td>
+                <td><a ui-sref="dash.adminData.personalView({name: data.name, table: data.data})"><i class="bi bi-eye-fill" style="letter-spacing: 5px;"> </i></a> <a ui-sref="dash.adminData.personalEdit({id: data.id, name: data.name, table: data.data, status: data.status})"><i class="bi bi-pen-fill" style="letter-spacing: 5px;"></i></a> <a href="#" ng-click="selectMember(data)" data-bs-toggle="modal" data-bs-target="#deleteAnswer"><i class="bi bi-trash3-fill"></i></a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="text-center" ng-if="earray.length == undefined">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div><br>
+    Adatok betöltése...
+</div>
+<!-- End Table -->
+
+
+<!-- Modal -->
+<div class="modal fade bd-example-modal-sm" id="deleteAnswer" data-bs-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="deleteAnswerLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="deleteAnswerLabel">Törlés megerősítés</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            Biztos szeretnéd törölni a választott alkalmazott adatait ({{ modalData.name }})?
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-bs-dismiss="modal">Nem</button>
+            <button type="button" ng-click="deleteMember()" class="btn btn-primary" data-bs-dismiss="modal">Törlés</button>
+        </div>
+        </div>
+    </div>
+</div>
+<!-- End Modal -->

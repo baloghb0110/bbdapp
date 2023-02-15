@@ -1,0 +1,34 @@
+/*------------------------------------
+  Sliding Image
+------------------------------------*/
+
+.sliding-img {
+  width: 100%;
+  height: $sliding-img-frame-height;
+  overflow: hidden;
+}
+
+.sliding-img-frame-to-start,
+.sliding-img-frame-to-end {
+  width: $sliding-img-frame-width;
+  height: $sliding-img-frame-height;
+  background-size: $sliding-img-frame-bg-size;
+}
+
+.sliding-img-frame-to-start {
+  animation: $sliding-img-frame-to-start-animation;
+}
+
+.sliding-img-frame-to-end {
+  animation: $sliding-img-frame-to-end-animation;
+}
+
+@keyframes sliding-img-frame-to-start {
+  from { background-position-x: 0; }
+  to   { background-position-x: -$sliding-img-frame-width; }
+}
+
+@keyframes sliding-img-frame-to-end {
+  from { background-position-x: 0; }
+  to   { background-position-x: $sliding-img-frame-width; }
+}

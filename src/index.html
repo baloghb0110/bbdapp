@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html ng-app="bbdApp" lang="en">
+  <head>
+    <!-- Required Meta Tags Always Come First -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <!-- Title -->
+    <title>BBD Comtech Kft. - WebApp</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="@@autopath/favicon.ico">
+
+    <!-- Font -->
+    <link href="@@autopath/@@vars.themeFont" rel="stylesheet">
+    <!-- JS Global Compulsory @@deleteLine:build -->
+    <script src="@@autopath/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="@@autopath/node_modules/jquery-migrate/dist/jquery-migrate.min.js"></script>
+    <script src="@@autopath/node_modules/daterangepicker/moment.min.js"></script>
+    <script src="@@autopath/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="@@autopath/node_modules/fullcalendar/dist/fullcalendar.js"></script>
+    <script src="@@autopath/node_modules/fullcalendar/dist/gcal.js"></script>
+    <script src="@@autopath/node_modules/fullcalendar/dist/lang/hu.js"></script>
+    <script src="@@autopath/node_modules/angular/angular.min.js"></script>
+    <script src="@@autopath/node_modules/angular-ui-calendar/src/calendar.js"></script>
+    <script src="@@autopath/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="@@autopath/node_modules/angular-ui-router/release/stateEvents.min.js"></script>
+    <script src="@@autopath/node_modules/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="@@autopath/node_modules/flatpickr/dist/l10n/hu.js"></script>
+    <script src="@@autopath/node_modules/bootstrap-growl/bootstrap-notify.min.js"></script>
+    <script src="@@autopath/node_modules/ng-file-upload/dist/ng-file-upload-shim.min.js"></script>
+    <script src="@@autopath/node_modules/ng-file-upload/dist/ng-file-upload.min.js"></script>
+    <script src="@@autopath/node_modules/signature_pad/dist/signature_pad.js"></script>
+    <script src="@@autopath/node_modules/angular-signature/src/signature.js"></script>
+    <script src="@@autopath/node_modules/ng-dialog/js/ngDialog.min.js"></script>
+
+    
+
+    <!-- CSS Implementing Plugins -->
+    <!-- bundlecss:vendor [@@autopath] -->
+    <link rel="stylesheet" href="@@autopath/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="@@autopath/node_modules/flatpickr/dist/flatpickr.min.css">
+    <link rel="stylesheet" href="@@autopath/node_modules/fullcalendar/dist/fullcalendar.css">
+    <link rel="stylesheet" href="@@autopath/node_modules/ng-dialog/css/ngDialog.min.css">
+    <link rel="stylesheet" href="@@autopath/node_modules/ng-dialog/css/ngDialog-theme-default.min.css">
+
+    <!-- CSS Front Template -->
+    <!-- bundlecss:theme [@@autopath] -->
+    <link rel="preload" href="@@autopath/assets/css/theme.css" data-hs-appearance="default" as="style">
+    <link rel="preload" href="@@autopath/assets/css/theme-dark.css" data-hs-appearance="dark" as="style">
+
+    <style data-hs-appearance-onload-styles>
+        * {
+            transition: unset !important;
+        }
+
+        body {
+            opacity: 0;
+        }
+    </style>
+  </head>
+
+  <body class="@@if(layoutBuilder.header.layoutMode === 'default'){has-navbar-vertical-aside navbar-vertical-aside-show-xl} @@if(layoutBuilder.sidebarLayout === 'compact'){navbar-vertical-aside-compact-mode navbar-vertical-aside-compact-mini-mode} @@if(layoutBuilder.sidebarLayout === 'mini'){navbar-vertical-aside-mini-mode} footer-offset">
+      <script src="@@autopath/assets/js/hs.theme-appearance.js"></script>
+      <script src="@@autopath/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside-mini-cache.js"></script>
+      <script src="@@autopath/app/input.js"></script>
+      <script src="@@autopath/app/alert.js"></script>
+      <div ui-view></div>
+      <!-- JS Implementing Plugins -->
+      <!-- bundlejs:vendor [@@autopath] -->
+      <script src="@@autopath/assets/vendor/hs-navbar-vertical-aside/dist/hs-navbar-vertical-aside.min.js"></script>
+
+
+      <!-- JS Front Dashboard -->
+      <!-- bundlejs:theme [@@autopath] -->
+      <script src="@@autopath/assets/js/hs.core.js"></script>
+      <script src="@@autopath/assets/js/hs.chartjs.js"></script>
+      <script src="@@autopath/assets/js/hs.flatpickr.js"></script>
+      <script src="@@autopath/assets/js/hs.fullcalendar.js"></script>
+  
+
+      <script src="@@autopath/app/app.js"></script>
+      <script src="@@autopath/app/controllers/login/login.js"></script>
+      <script src="@@autopath/app/controllers/dash.js"></script>
+
+      <script src="@@autopath/app/controllers/attendance/attendance.js"></script>
+      <script src="@@autopath/app/controllers/attendance/attendanceCreate.js"></script>
+      <script src="@@autopath/app/controllers/attendance/manage.js"></script>
+
+      <script src="@@autopath/app/controllers/employee/employee.js"></script>
+      <script src="@@autopath/app/controllers/employee/add.js"></script>
+      <script src="@@autopath/app/controllers/employee/view.js"></script>
+      <script src="@@autopath/app/controllers/employee/edit.js"></script>
+
+      <script src="@@autopath/app/controllers/free/free.js"></script>
+
+      <script src="@@autopath/app/controllers/workarea/area.js"></script>
+
+      <script src="@@autopath/app/factories/TokenFactory.js"></script>
+      <script src="@@autopath/app/factories/authFactory.js"></script>
+      <script src="@@autopath/app/factories/timeout.js"></script>
+
+      <script src="@@autopath/app/services/storageService.js"></script>
+      <script src="@@autopath/app/services/attendance.js"></script>
+
+      <script src="@@autopath/app/directives/buttonDirective.js"></script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered bg-white">
+    <div class="navbar-nav-wrap">
+        <div class="navbar-nav-wrap-content-start">
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+            </button>
+        </div>
+        <div class="navbar-nav-wrap-content-end">
+            <!-- Navbar -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a style="cursor: pointer;" ng-click="logOut()">kijelentkezés</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<aside class="js-navbar-vertical-aside navbar navbar-vertical-aside navbar-vertical navbar-vertical-fixed navbar-expand-xl navbar-bordered bg-dark navbar-vertical-aside-initialized">
+    <div class="navbar-vertical-container">
+        <div class="navbar-vertical-footer-offset">
+            <button type="button" class="js-navbar-vertical-aside-toggle-invoker navbar-aside-toggler">
+                <i class="bi-arrow-bar-left navbar-toggler-short-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Collapse"></i>
+                <i class="bi-arrow-bar-right navbar-toggler-full-align" data-bs-template='<div class="tooltip d-none d-md-block" role="tooltip"><div class="arrow"></div><div class="tooltip-inner"></div></div>' data-bs-toggle="tooltip" data-bs-placement="right" title="Expand"></i>
+            </button>
+
+            <div class="navbar-vertical-content">
+                <div id="navbarVerticalMenu" class="nav nav-pills nav-vertical card-navbar-nav">
+                    <div class="nav-item">
+                        <a class="nav-link ">
+                            <i class="bi-person-circle nav-icon"></i>
+                            <span class="nav-link-title">Profil</span>
+                        </a>
+
+                    </div>
+
+                    <span class="dropdown-header mt-4"></span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>
+                    <div class="navbar-nav nav-compact"></div>
+
+                    <div id="navbarVerticalMenuPagesMenu">
+                        <div ng-repeat="(key, item) in menuItems" class="nav-item">
+                            <a ng-if="!item.subMenu" ui-sref="{{item.stateRef}}" class="nav-link" ng-class="{ active: isActive('/dash{{item.url}}')}" data-placement="left">
+                                <i class="{{item.icon}} nav-icon"></i>
+                                <span class="nav-link-title">{{item.title}}</span>
+                            </a>
+
+                            <span ng-if="item.subMenu && item.label != ''" class="dropdown-header mt-4">{{item.label}}</span>
+                            <small ng-if="item.subMenu && item.label != ''" class="bi-three-dots nav-subtitle-replacer"></small>
+                            <a ng-if="item.subMenu && item.label != ''" class="nav-link dropdown-toggle "  role="button" data-bs-toggle="collapse" data-bs-target="#{{item.title}}" aria-expanded="false" aria-controls="{{item.title}}">
+                                <i class="{{item.icon}} nav-icon"></i>
+                                <span class="nav-link-title">{{item.title}}</span>
+                            </a>
+
+                            <div ng-if="item.subMenu" id="{{item.title}}" class="nav-collapse collapse " data-bs-parent="#navbarVerticalMenuPagesMenu">
+                                <a ng-repeat="subitem in ::item.subMenu" class="nav-link " ui-sref="{{subitem.stateRef}}">{{subitem.title}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+<!-- JS Plugins Init. -->
+<script>
+(function() {
+    angular.element(document).ready(function () {
+        localStorage.removeItem('hs_theme')
+        new HSSideNav('.js-navbar-vertical-aside').init()
+    });
+})()
+</script>
+
+<main id="content" role="main" class="main">
+    <!-- Content -->
+    <div class="content container-fluid">
+        <div ui-view></div>
+    </div>
+</main>

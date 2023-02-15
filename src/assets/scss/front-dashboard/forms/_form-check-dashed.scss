@@ -1,0 +1,19 @@
+/*------------------------------------
+  Form Check Dashed
+------------------------------------*/
+
+.form-check-dashed {
+  text-align: center;
+  padding: $form-check-dashed-padding-y $form-check-dashed-padding-x;
+  border: $form-check-dashed-border-width dashed $form-check-dashed-border-color;
+  @include border-radius($form-check-dashed-border-radius);
+
+  &:hover {
+    cursor: pointer;
+    background-color: $form-check-dashed-bg-hover-color;
+  }
+
+  .form-check-input {
+    display: none;
+  }
+}
