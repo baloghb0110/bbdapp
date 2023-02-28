@@ -1,0 +1,231 @@
+
+function getStairsMovementDirection(stairNumber, isClimbingStairs) {
+  if (!isClimbingStairs) {
+    if (stairNumber % 2 != 1)
+      return "down"
+    else return "right"
+  } else {
+    if (stairNumber % 2 != 1)
+      return "up"
+    else return "right"
+  }
+}
+
+function getZigZagMovementDirection(step) {
+  if (step % 6 == 0) {
+    return "up"
+  }
+  else if (step % 3 == 0) {
+    return "down"
+  } else {
+    return "right"
+  }
+}
+
+let state = false
+
+function manuallyControl(p) {
+  if (p == "KeyQ")
+    state = !state
+  if (!state) {
+    if (p == "KeyW")
+      moveDirection("up")
+    else if (p == "KeyS")
+      moveDirection("down")
+    else if (p == "KeyD")
+      moveDirection("right")
+    else if (p == "KeyA")
+      moveDirection("left")
+  } else {
+    if (p == "ArrowUp")
+      moveDirection("up")
+    else if (p == "ArrowDown")
+      moveDirection("down")
+    else if (p == "ArrowRight")
+      moveDirection("right")
+    else if (p == "ArrowLeft")
+      moveDirection("left")
+  }
+}
+
+function moveString(directions) {
+  for (let i = 0; i < directions.length; i++) {
+    const direction = directions[i];
+    switch (direction) {
+      case 'a':
+        moveLeft();
+        break;
+      case 'w':
+        moveUp();
+        break;
+      case 's':
+        moveDown();
+        break;
+      case 'd':
+        moveRight();
+        break;
+      default:
+        console.log('Invalid direction');
+    }
+  }
+}
+
+
+function givePotion2Answer(arr) {
+  let sum = 0
+
+  for (let item of arr) {
+    if (item % 2 == 0)
+      sum += item
+  }
+
+  return sum
+}
+
+function givePotion3Answer(arr) {
+  return arr.reduce((a, b) => (a > b) ? a : b, 0)
+}
+
+function givePotion4Answer(text, toCapitalize) {
+  let res = ""
+  text.split('').forEach(element => {
+    res += text.includes(toCapitalize) ? element.toUpperCase() : element
+  });
+
+  return res
+}
+
+function givePotion5Answer() { }
+
+function givePotion6Answer(arr) {
+  return arr = arr.split('*').map(Number).reduce((sum, next) => sum + next, 0)
+}
+
+function givePotion7Answer() { }
+function givePotion8Answer() { }
+function givePotion9Answer() { }
+
+function givePotion10Answer(letterToFind, text) {
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === letterToFind)
+      return i
+  }
+
+  return -1
+}
+
+function givePotion11Answer(input, letterToReplace, letterToPutInstead) {
+  let str = ''
+  for (let c of input) {
+    if (c === letterToReplace)
+      str += letterToPutInstead
+    else
+      str += c
+  }
+
+  return str
+}
+
+function givePotion12Answer(num) {
+  let res = 0
+
+  for (let item of num) {
+    if (item < 0)
+      item = item * -1
+
+    res += item
+  }
+
+  return res
+}
+
+let neverRight = false
+let neverDown = false
+let neverUp = false
+
+function level7Move(elementLeftOfPrince, elementRightOfPrince, elementUpOfPrince, elementDownOfPrince) {
+
+  if (elementRightOfPrince == 11 && elementDownOfPrince == 11) {
+    neverRight = false
+    neverDown = false
+  }
+
+  if (elementLeftOfPrince == 11 && elementRightOfPrince == 11) {
+    neverUp = false
+  }
+
+  let arr = [elementLeftOfPrince, elementRightOfPrince, elementUpOfPrince, elementDownOfPrince]
+
+  if (elementDownOfPrince == 99)
+    hasMovedToTile("down", arr)
+  else if (elementRightOfPrince == 99)
+    hasMovedToTile("right", arr)
+  else if (elementUpOfPrince == 99)
+    hasMovedToTile("up", arr)
+  else if (elementLeftOfPrince == 99)
+    hasMovedToTile("left", arr)
+  else if ((elementDownOfPrince == 11 || elementDownOfPrince == 99) && !neverDown)
+    hasMovedToTile("down", arr)
+  else if ((elementRightOfPrince == 11 || elementDownOfPrince == 99) && !neverRight)
+    hasMovedToTile("right", arr)
+  else if ((elementUpOfPrince == 11 || elementDownOfPrince == 99) && !neverUp)
+    hasMovedToTile("up", arr)
+  else if ((elementLeftOfPrince == 11 || elementDownOfPrince == 99))
+    hasMovedToTile("left", arr)
+}
+
+function level8Move() { }
+
+
+
+function hasMovedToTile(direction, tileToCheck) {
+
+  if (tileToCheck[0] == 11 && tileToCheck[2] == 11) {
+    neverRight = true
+    neverDown = true
+  }
+
+  if (tileToCheck[1] == 11 && tileToCheck[3] == 11) {
+    neverUp = true
+  }
+
+  if (direction == "down")
+    moveDirection("down")
+  else if (direction == "right")
+    moveDirection("right")
+  else if (direction == "up")
+    moveDirection("up")
+  else if (direction == "left")
+    moveDirection("left")
+}
+
+// DON'T MODIFY THE CODE BELOW THIS LINE
+
+
+let toExport;
+
+try {
+  toExport = [
+    { name: "getStairsMovementDirection", content: getStairsMovementDirection, type: "function" },
+    { name: "getZigZagMovementDirection", content: getZigZagMovementDirection, type: "function" },
+    { name: "manuallyControl", content: manuallyControl, type: "function" },
+    { name: "givePotion2Answer", content: givePotion2Answer, type: "function" },
+    { name: "givePotion3Answer", content: givePotion3Answer, type: "function" },
+    { name: "givePotion4Answer", content: givePotion4Answer, type: "function" },
+    { name: "givePotion5Answer", content: givePotion5Answer, type: "function" },
+    { name: "givePotion6Answer", content: givePotion6Answer, type: "function" },
+    { name: "givePotion7Answer", content: givePotion7Answer, type: "function" },
+    { name: "givePotion8Answer", content: givePotion8Answer, type: "function" },
+    { name: "givePotion9Answer", content: givePotion9Answer, type: "function" },
+    { name: "givePotion10Answer", content: givePotion10Answer, type: "function" },
+    { name: "givePotion11Answer", content: givePotion11Answer, type: "function" },
+    { name: "givePotion12Answer", content: givePotion12Answer, type: "function" },
+    { name: "level7Move", content: level7Move, type: "function" },
+    { name: "level8Move", content: level8Move, type: "function" },
+  ]
+
+} catch (error) {
+  toExport = { error: error.message }
+}
+
+export { toExport };
