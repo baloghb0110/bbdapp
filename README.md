@@ -11,6 +11,8 @@ The backend of php and simple php backend and sends the fetch to its own URL
 It's an attendance manager application, where you can create daily attendance and signatures on the workspaces you create.
 For each employee hired, you can generate an excel spreadsheet for each month showing their signatures and dates
 
+There is also admin access, where you can manage employees, create/delete, the same applies to workspaces.
+
 ## Quick Setup
 
 1. Download and install Node.js , which we use to manage our dependencies. If Node.js is already installed in your machine and jump to step 2.
@@ -33,3 +35,13 @@ gulp dist command compiles and copies all files from ./src/* folder into ./dist/
 
 #### gulp build:
 gulp build command prepares performance ready fully production files of your project into ./build/* folder by automatically detecting all used asset sources from HTML pages.
+
+# Images
+- Login page
+![login](https://github.com/baloghb0110/bbdapp/blob/main/images/login.png)
+- Dashboard
+![dashoard](https://github.com/baloghb0110/bbdapp/blob/main/images/dashboard.png)
+- Free calendar
+![calendar](https://github.com/baloghb0110/bbdapp/blob/main/images/free-calendar.png)
+- Attendance manage
+![attendance](https://github.com/baloghb0110/bbdapp/blob/main/images/attendance_sign.png)
